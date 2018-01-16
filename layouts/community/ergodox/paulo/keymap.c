@@ -25,9 +25,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                   ,------------.          ,------------.
  *                                   |RESET|      |          |      |RESET|
  *                             ,-----|-----|------|          |------+-----+-----.
- *                             |     |     |      |          | Del  |     |     |
+ *                             |     |     | PgUp |          | Del  |     |     |
  *                             |BkSpc| Num |------|          |------|Enter|Space|
- *                             |     |     |      |          | BkSpc|     |     |
+ *                             |     |     | PgDn |          | BkSpc|     |     |
  *                             `------------------'          `------------------'
  */
 [_QWERTY] = LAYOUT_ergodox(
@@ -39,8 +39,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_MUTE       , KC_VOLU , KC_VOLD , KC_LALT , KC_LGUI ,
 
                                                         RESET, KC_NO,
-                                                               KC_NO,
-                                          KC_BSPACE, TO(_NUM), KC_NO,
+                                                               KC_PGUP,
+                                          KC_BSPACE, TO(_NUM), KC_PGDN,
 
   // right hand
   KC_ESC,      KC_6, KC_7     ,  KC_8    ,    KC_9   ,    KC_0,                KC_MINUS,
@@ -70,9 +70,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                      ,-------------.           ,-------------.
  *                                      |      |      |           |      |      |
  *                               ,------|------|------|           |------+------+------.
- *                               |      |      |      |           |      |      |      |
+ *                               |      |      | Home |           |      |      |      |
  *                               |QWERTY|QWERTY|------|           |------|QWERTY|QWERTY|
- *                               |      |      |      |           |      |      |      |
+ *                               |      |      | End  |           |      |      |      |
  *                               `--------------------'           `--------------------'
  */
 [_NUM] = LAYOUT_ergodox(
@@ -84,8 +84,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_NO , KC_NO   , KC_NO   , KC_NO   , KC_NO   ,
 
                                                  KC_NO, KC_NO,
-                                                        KC_NO,
-                              TO(_QWERTY), TO(_QWERTY), KC_NO,
+                                                        KC_HOME,
+                              TO(_QWERTY), TO(_QWERTY), KC_END,
 
   // right hand
   KC_NO     , KC_NO   , KC_NO   , KC_PSLS     , KC_PAST    , KC_PMNS        , KC_NO   ,
