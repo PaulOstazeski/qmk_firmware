@@ -23,11 +23,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *   | Mute | Vol+|Vol- | Alt | LGUI|                                     | Left|Down | Up  |Right|      |
  *   `------------------------------'                                     `------------------------------'
  *                                   ,------------.          ,------------.
- *                                   |     |      |          |      |     |
+ *                                   |RESET|      |          |      |RESET|
  *                             ,-----|-----|------|          |------+-----+-----.
  *                             |     |     |      |          | Del  |     |     |
  *                             |BkSpc| Num |------|          |------|Enter|Space|
- *                             |     |     | 1-Num|          | BkSpc|     |     |
+ *                             |     |     |      |          | BkSpc|     |     |
  *                             `------------------'          `------------------'
  */
 [_QWERTY] = LAYOUT_ergodox(
@@ -38,9 +38,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_LSPO       , KC_Z    , KC_X    , KC_C    , KC_V    , KC_B , KC_MINUS    ,
   KC_MUTE       , KC_VOLU , KC_VOLD , KC_LALT , KC_LGUI ,
 
-                                                        KC_NO, KC_NO,
+                                                        RESET, KC_NO,
                                                                KC_NO,
-                                          KC_BSPACE, TO(_NUM), MO(_NUM),
+                                          KC_BSPACE, TO(_NUM), KC_NO,
 
   // right hand
   KC_ESC,      KC_6, KC_7     ,  KC_8    ,    KC_9   ,    KC_0,                KC_MINUS,
@@ -49,12 +49,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_EQUAL,    KC_N, KC_M     ,  KC_COMM ,    KC_DOT ,    KC_SLSH,             KC_RSPC,
                      KC_LEFT  ,  KC_DOWN ,    KC_UP  ,    KC_RIGHT,            KC_NO,
 
-  KC_NO, KC_NO,
+  KC_NO,      RESET,
   KC_DELETE,
   KC_BSPACE,  KC_ENTER, KC_SPACE
 ),
 
-/* Keymap 2: NUMPAD
+/* Keymap 1: NUMPAD
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
  * |        |  F1  |  F2  |  F3  |  F4  |  F5  | F11  |           |      |      |      |  /   |  *   |  -   |        |
@@ -68,7 +68,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *   |      |      |      |      |      |                                       |  0   |  0   |  .   | Enter|      |
  *   `----------------------------------'                                       `----------------------------------'
  *                                      ,-------------.           ,-------------.
- *                                      |Reset |      |           |      |      |
+ *                                      |      |      |           |      |      |
  *                               ,------|------|------|           |------+------+------.
  *                               |      |      |      |           |      |      |      |
  *                               |QWERTY|QWERTY|------|           |------|QWERTY|QWERTY|
@@ -83,7 +83,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_NO , KC_PERC , KC_CIRC , KC_LBRC , KC_RBRC , KC_TILD , KC_NO  ,
   KC_NO , KC_NO   , KC_NO   , KC_NO   , KC_NO   ,
 
-                                                 RESET, KC_NO,
+                                                 KC_NO, KC_NO,
                                                         KC_NO,
                               TO(_QWERTY), TO(_QWERTY), KC_NO,
 
@@ -99,29 +99,4 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_NO, TO(_QWERTY),  TO(_QWERTY)
 ),
 
-};
-
-/**
- * Runs just one time when the keyboard initializes.
- */
-void matrix_init_user(void) {
-
-};
-
-/**
- * Runs constantly in the background, in a loop.
- */
-void matrix_scan_user(void) {
-  uint8_t layer = biton32(layer_state);
-
-  ergodox_board_led_off();
-
-  switch (layer) {
-    case _QWERTY:
-      ergodox_right_led_1_on();
-      break;
-    case _NUM:
-      ergodox_right_led_2_on();
-      break;
-  }
 };
