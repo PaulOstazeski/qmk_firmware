@@ -9,6 +9,11 @@ enum custom_layers {
     _MOUSE,
 };
 
+// I have a layer on semi-colon that when held down by my pinky, A and S become
+// ( and ), D and F become { and }, and finally J and K become [ and ]. Don't
+// know how I worked without it!
+// https://www.reddit.com/r/MechanicalKeyboards/comments/8doesg/dvorak_fingers_vs_standard_fingers/dxqpk3n/
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Basic QWERTY layer
  *
@@ -17,7 +22,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+-----+-----+-----+-----+------------|           |------+-----+-----+-----+-----+-----+--------|
  * |  Tab   |  Q  |  W  |  E  |  R  |  T  |  [   |           |  ]   |  Y  |  U  |  I  |  O  |  P  |   \    |
  * |--------+-----+-----+-----+-----+-----|      |           |      |-----+-----+-----+-----+-----+--------|
- * |Ctrl/Esc|  A  |  S  |  D  |  F  |  G  |------|           |------|  H  |  J  |  K  |  L  |  ;  |   '    |
+ * |Ctrl/Esc|  A  |  S  |  D  |  F  |  G  |------|           |------|  H  |  J  |  K  |  L  |;/Num|   '    |
  * |--------+-----+-----+-----+-----+-----|  -   |           |  =   |-----+-----+-----+-----+-----+--------|
  * | (Shift |  Z  |  X  |  C  |  V  |  B  |      |           |      |  N  |  M  |  ,  |  .  |  /  | Shift) |
  * `--------+-----+-----+-----+-----+------------'           `------------+-----+-----+-----+-----+--------'
@@ -46,7 +51,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // right hand
   KC_ESC,      KC_6, KC_7     ,  KC_8    ,    KC_9   ,    KC_0,                KC_MINUS,
   KC_RBRACKET, KC_Y, KC_U     ,  KC_I    ,    KC_O   ,    KC_P,                KC_BSLASH,
-               KC_H, KC_J     ,  KC_K    ,    KC_L   ,    KC_SCOLON,           KC_QUOTE,
+               KC_H, KC_J     ,  KC_K    ,    KC_L   ,    LT(_NUM, KC_SCOLON), KC_QUOTE,
   KC_EQUAL,    KC_N, KC_M     ,  KC_COMM ,    KC_DOT ,    KC_SLSH,             KC_RSPC,
                      KC_LEFT  ,  KC_DOWN ,    KC_UP  ,    KC_RIGHT,            KC_NO,
 
@@ -62,7 +67,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------+------|           |------+------+------+------+------+------+--------|
  * |        |  !   |  @   |  {   |  }   |  |   |      |           |      |      |  7   |  8   |  9   |  +   |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |        |  #   |  $   |  (   |  )   |  `   |------|           |------|      |  4   |  5   |  6   |  +   |        |
+ * |        |  #   |  $   |  (   |  )   |  `   |------|           |------|      |  4   |  5   |  6   | TRNS |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * |        |  %   |  ^   |  [   |  ]   |  ~   |      |           |      |      |  1   |  2   |  3   |  =   |        |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
@@ -91,7 +96,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // right hand
   KC_NO     , KC_NO   , KC_NO   , KC_PSLS     , KC_PAST    , KC_PMNS        , KC_NO   ,
   KC_NO     , KC_NO   , KC_KP_7 , KC_KP_8     , KC_KP_9    , KC_PPLS        , KC_NO   ,
-              KC_NO   , KC_KP_4 , KC_KP_5     , KC_KP_6    , KC_PPLS        , KC_PPLS ,
+              KC_NO   , KC_KP_4 , KC_KP_5     , KC_KP_6    , KC_TRNS        , KC_PPLS ,
   KC_NO     , KC_NO   , KC_KP_1 , KC_KP_2     , KC_KP_3    , KC_PEQL        , KC_NO   ,
                         KC_KP_0 , KC_KP_0     , KC_PDOT    , KC_ENTER       , KC_NO   ,
 
