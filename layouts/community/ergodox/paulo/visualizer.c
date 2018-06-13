@@ -36,7 +36,7 @@ static void get_visualizer_layer_and_color(visualizer_state_t* state) {
     switch(layer) {
       case(_QWERTY):
         state->target_lcd_color = LCD_COLOR(RASPBERRY, 255, 0xFF);
-        state->layer_text = "Alpha";
+        state->layer_text = "QWERTY";
         break;
       case(_NUM):
         state->target_lcd_color = LCD_COLOR(CYAN, 255, 0xFF);
