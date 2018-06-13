@@ -8,6 +8,12 @@ Note: this is a modified copy of ../default/visualizer.c, originally licensed GP
 // Copied from keymap.c
 enum custom_layers {
     _QWERTY,
+    _T1,
+    _T2,
+    _T3,
+    _T4,
+    _T5,
+    _T6,
     _NUM,
     _MOUSE,
 };
@@ -37,6 +43,30 @@ static void get_visualizer_layer_and_color(visualizer_state_t* state) {
       case(_QWERTY):
         state->target_lcd_color = LCD_COLOR(RASPBERRY, 255, 0xFF);
         state->layer_text = "QWERTY";
+        break;
+      case(_T1):
+        state->target_lcd_color = LCD_COLOR(GREEN, 255, 0xFF);
+        state->layer_text = "Tarmak1";
+        break;
+      case(_T2):
+        state->target_lcd_color = LCD_COLOR(GREEN, 255, 0xFF);
+        state->layer_text = "Tarmak2";
+        break;
+      case(_T3):
+        state->target_lcd_color = LCD_COLOR(GREEN, 255, 0xFF);
+        state->layer_text = "Tarmak3";
+        break;
+      case(_T4):
+        state->target_lcd_color = LCD_COLOR(GREEN, 255, 0xFF);
+        state->layer_text = "Tarmak4";
+        break;
+      case(_T5):
+        state->target_lcd_color = LCD_COLOR(GREEN, 255, 0xFF);
+        state->layer_text = "Colemak";
+        break;
+      case(_T6):
+        state->target_lcd_color = LCD_COLOR(OCEAN, 255, 0xFF);
+        state->layer_text = "Colemak-mod-DH";
         break;
       case(_NUM):
         state->target_lcd_color = LCD_COLOR(CYAN, 255, 0xFF);
