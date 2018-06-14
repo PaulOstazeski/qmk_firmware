@@ -338,7 +338,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 7: NUMPAD
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |        | T-1  | T-2  | T-3  | T-4  | T-5  | T-6  |           |      |      |      |  /   |  *   |  -   |        |
+ * | QWERTY | T-1  | T-2  | T-3  | T-4  | T-5  | T-6  |           |      |      |      |  /   |  *   |  -   |        |
  * |--------+------+------+------+------+------+------|           |------+------+------+------+------+------+--------|
  * |        |  !   |  @   |  {   |  }   |  |   | Home |           | PgUp |      |  7   |  8   |  9   |  +   |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
@@ -358,15 +358,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_NUM] = LAYOUT_ergodox(
   // left hand
-  _______ , DF(_T1) , DF(_T2) , DF(_T3) , DF(_T4) , DF(_T5) , DF(_T6) ,
-  _______ , KC_EXLM , KC_AT   , KC_LCBR , KC_RCBR , KC_PIPE , KC_HOME,
-  _______ , KC_HASH , KC_DLR  , KC_LPRN , KC_RPRN , KC_GRV  ,
-  _______ , KC_PERC , KC_CIRC , KC_LBRC , KC_RBRC , KC_TILD , KC_END ,
-  _______ , _______ , _______ , _______ , _______ ,
+  DF(_QWERTY) , DF(_T1) , DF(_T2) , DF(_T3) , DF(_T4) , DF(_T5) , DF(_T6) ,
+  _______     , KC_EXLM , KC_AT   , KC_LCBR , KC_RCBR , KC_PIPE , KC_HOME,
+  _______     , KC_HASH , KC_DLR  , KC_LPRN , KC_RPRN , KC_GRV  ,
+  _______     , KC_PERC , KC_CIRC , KC_LBRC , KC_RBRC , KC_TILD , KC_END ,
+  _______     , _______ , _______ , _______ , _______ ,
 
-                                                 _______, _______,
-                                                          _______,
-                                        _______, _______, _______,
+                                                     _______, _______,
+                                                              _______,
+                                            _______, _______, _______,
 
   // right hand
   _______   , _______   , _______ , KC_PSLS     , KC_PAST    , KC_PMNS        , _______   ,
