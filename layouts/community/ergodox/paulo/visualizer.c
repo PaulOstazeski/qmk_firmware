@@ -7,15 +7,9 @@ Note: this is a modified copy of ../default/visualizer.c, originally licensed GP
 
 // Copied from keymap.c
 enum custom_layers {
-    _QWERTY,
-    _T1,
-    _T2,
-    _T3,
-    _T4,
-    _T5,
-    _T6,
-    _NUM,
-    _MOUSE,
+    _MOD_DH,
+    _NUMB_SYMB,
+    _FUNC_PUNC,
 };
 
 #define RED 0
@@ -40,41 +34,17 @@ static void get_visualizer_layer_and_color(visualizer_state_t* state) {
     uint8_t layer = biton32(state->status.layer);
 
     switch(layer) {
-      case(_QWERTY):
+      case(_MOD_DH):
         state->target_lcd_color = LCD_COLOR(RASPBERRY, 255, 0xFF);
-        state->layer_text = "QWERTY";
+        state->layer_text = "COLEMAK";
         break;
-      case(_T1):
-        state->target_lcd_color = LCD_COLOR(GREEN, 255, 0xFF);
-        state->layer_text = "Tarmak1";
-        break;
-      case(_T2):
-        state->target_lcd_color = LCD_COLOR(GREEN, 255, 0xFF);
-        state->layer_text = "Tarmak2";
-        break;
-      case(_T3):
-        state->target_lcd_color = LCD_COLOR(GREEN, 255, 0xFF);
-        state->layer_text = "Tarmak3";
-        break;
-      case(_T4):
-        state->target_lcd_color = LCD_COLOR(GREEN, 255, 0xFF);
-        state->layer_text = "Tarmak4";
-        break;
-      case(_T5):
-        state->target_lcd_color = LCD_COLOR(GREEN, 255, 0xFF);
-        state->layer_text = "Colemak";
-        break;
-      case(_T6):
+      case(_NUMB_SYMB):
         state->target_lcd_color = LCD_COLOR(OCEAN, 255, 0xFF);
-        state->layer_text = "Colemak-mod-DH";
+        state->layer_text = "Numbers";
         break;
-      case(_NUM):
+      case(_FUNC_PUNC):
         state->target_lcd_color = LCD_COLOR(CYAN, 255, 0xFF);
-        state->layer_text = "Symbol";
-        break;
-      case(_MOUSE):
-        state->target_lcd_color = LCD_COLOR(YELLOW, 255, 0xFF);
-        state->layer_text = "Mouse";
+        state->layer_text = "Function";
         break;
     }
 }
