@@ -2,6 +2,9 @@
 #include "action_layer.h"
 #include "version.h"
 
+#define PERMISSIVE_HOLD
+#define RETRO_TAPPING
+
 enum custom_layers {
     _MOD_DH,
     _NUMB_SYMB,
@@ -21,7 +24,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /*
  * Base layer (colemak mod-dh)
  * ,---------------------------------------------.           ,---------------------------------------------.
- * |   `    |  1  |  2  |  3  |  4  |  5  | Esc  |           | Esc  |  6  |  7  |  8  |  9  |  0  |   -    |
+ * |   `    |     |     |     |     |     | Esc  |           | Esc  |     |     |     |     |     |        |
  * |--------+-----+-----+-----+-----+------------|           |------+-----+-----+-----+-----+-----+--------|
  * |  Tab   |  Q  |  W  |  F  |  P  |  B  |  [   |           |  ]   |  J  |  L  |  U  |  Y  |  ;  |   \    |
  * |--------+-----+-----+-----+-----+-----|      |           |      |-----+-----+-----+-----+-----+--------|
@@ -41,10 +44,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_MOD_DH] = LAYOUT_ergodox(
   // left hand
-  KC_GRAVE      , KC_1    , KC_2    , KC_3    , KC_4    , KC_5 , KC_ESC      ,
-  KC_TAB        , KC_Q    , KC_W    , KC_F    , KC_P    , KC_B , KC_LBRACKET ,
-  CTL_T(KC_ESC) , KC_A    , KC_R    , KC_S    , KC_T    , KC_G ,
-  KC_LSPO       , KC_Z    , KC_X    , KC_C    , KC_D    , KC_V , KC_MINUS    ,
+  _______       , _______ , _______ , _______ , _______ , _______ , KC_ESC      ,
+  KC_TAB        , KC_Q    , KC_W    , KC_F    , KC_P    , KC_B    , KC_LBRACKET ,
+  CTL_T(KC_ESC) , KC_A    , KC_R    , KC_S    , KC_T    , KC_G    ,
+  KC_LSPO       , KC_Z    , KC_X    , KC_C    , KC_D    , KC_V    , KC_MINUS    ,
   KC_MUTE       , KC_VOLU , KC_VOLD , KC_LALT , KC_LGUI ,
 
                                                          RESET , KC_NO,
@@ -52,13 +55,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                 MT(MOD_LALT,KC_BSPACE), MT(MOD_LGUI,KC_DELETE) , KC_END,
 
   // right hand
-  KC_ESC,      KC_6, KC_7    , KC_8    , KC_9   , KC_0      , KC_MINUS,
-  KC_RBRACKET, KC_J, KC_L    , KC_U    , KC_Y   , KC_SCOLON , KC_BSLASH,
-               KC_M, KC_N    , KC_E    , KC_I   , KC_O      , KC_QUOTE,
-  KC_EQUAL,    KC_K, KC_H    , KC_COMM , KC_DOT , KC_SLSH   , KC_RSPC,
-                     KC_LEFT , KC_DOWN , KC_UP  , KC_RIGHT  , KC_NO,
+  KC_ESC,      _______, _______    , _______    , _______   , _______      , _______,
+  KC_RBRACKET, KC_J   , KC_L       , KC_U       , KC_Y      , KC_SCOLON    , KC_BSLASH,
+               KC_M   , KC_N       , KC_E       , KC_I      , KC_O         , KC_QUOTE,
+  KC_EQUAL,    KC_K   , KC_H       , KC_COMM    , KC_DOT    , KC_SLSH      , KC_RSPC,
+                        KC_LEFT    , KC_DOWN    , KC_UP     , KC_RIGHT     , KC_NO,
 
-  RESET   , KC_NO,
+  KC_NO   , RESET,
   KC_PGUP ,
   KC_PGDN , LT(_FUNC_PUNC,KC_ENTER), LT(_NUMB_SYMB,KC_SPACE)
 ),
