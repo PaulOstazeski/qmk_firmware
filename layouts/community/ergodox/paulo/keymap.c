@@ -59,7 +59,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_RBRACKET, KC_J   , KC_L       , KC_U       , KC_Y      , KC_SCOLON    , KC_BSLASH,
                KC_M   , KC_N       , KC_E       , KC_I      , KC_O         , KC_QUOTE,
   KC_EQUAL,    KC_K   , KC_H       , KC_COMM    , KC_DOT    , KC_SLSH      , KC_RSPC,
-                        KC_LEFT    , KC_DOWN    , KC_UP     , KC_RIGHT     , KC_NO,
+                        KC_NO      , KC_NO      , KC_NO     , KC_NO        , KC_NO,
 
   KC_HOME , KC_END,
   KC_PGUP ,
